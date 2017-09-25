@@ -9,18 +9,18 @@
     
         <meta name="keywords" content="" />
     
-    <meta name="description" content="深浅复制在js中主要表现在数组（Array）和对象（Object）中。直接切入主题，上简单易懂的例子：  数组浅复制的例子 12345var testArray = [0,1,2]var copyArray = testArray;copyArray[0] = &quot;change&quot;;console.log(copyArray); //输出[&quot;change&quot;, 1, 2]console.log(test">
+    <meta name="description" content="深浅复制在js中主要表现在数组（Array）和对象（Object）中。直接进入正题，举个简单易懂的例子：  数组浅复制的例子 12345var testArray = [0,1,2]var copyArray = testArray;copyArray[0] = &quot;change&quot;;console.log(copyArray); //输出[&quot;change&quot;, 1, 2]console.log(tes">
 <meta property="og:type" content="article">
 <meta property="og:title" content="深度复制与浅度复制（javascript）">
 <meta property="og:url" content="https://linpupil.github.io/2017/09/21/深度复制与浅度复制（javascript）/index.html">
 <meta property="og:site_name" content="Linpupil">
-<meta property="og:description" content="深浅复制在js中主要表现在数组（Array）和对象（Object）中。直接切入主题，上简单易懂的例子：  数组浅复制的例子 12345var testArray = [0,1,2]var copyArray = testArray;copyArray[0] = &quot;change&quot;;console.log(copyArray); //输出[&quot;change&quot;, 1, 2]console.log(test">
+<meta property="og:description" content="深浅复制在js中主要表现在数组（Array）和对象（Object）中。直接进入正题，举个简单易懂的例子：  数组浅复制的例子 12345var testArray = [0,1,2]var copyArray = testArray;copyArray[0] = &quot;change&quot;;console.log(copyArray); //输出[&quot;change&quot;, 1, 2]console.log(tes">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://linpupil.github.io/css/images/heidi.jpg">
-<meta property="og:updated_time" content="2017-09-22T02:33:24.570Z">
+<meta property="og:updated_time" content="2017-09-22T06:22:02.508Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深度复制与浅度复制（javascript）">
-<meta name="twitter:description" content="深浅复制在js中主要表现在数组（Array）和对象（Object）中。直接切入主题，上简单易懂的例子：  数组浅复制的例子 12345var testArray = [0,1,2]var copyArray = testArray;copyArray[0] = &quot;change&quot;;console.log(copyArray); //输出[&quot;change&quot;, 1, 2]console.log(test">
+<meta name="twitter:description" content="深浅复制在js中主要表现在数组（Array）和对象（Object）中。直接进入正题，举个简单易懂的例子：  数组浅复制的例子 12345var testArray = [0,1,2]var copyArray = testArray;copyArray[0] = &quot;change&quot;;console.log(copyArray); //输出[&quot;change&quot;, 1, 2]console.log(tes">
 <meta name="twitter:image" content="https://linpupil.github.io/css/images/heidi.jpg">
     
 
@@ -74,7 +74,7 @@
                         <ul id="main-nav">
                             
                                 <li class="main-nav-list-item" >
-                                    <a class="main-nav-list-link" href="/index.html">Home</a>
+                                    <a class="main-nav-list-link" href="/">Home</a>
                                 </li>
                             
                                 <li class="main-nav-list-item" >
@@ -165,19 +165,25 @@
         
         
         <div class="article-entry" itemprop="articleBody">
-            <p>深浅复制在js中主要表现在数组（Array）和对象（Object）中。直接切入主题，上简单易懂的例子： </p>
+            <p>深浅复制在js中主要表现在数组（Array）和对象（Object）中。直接进入正题，举个简单易懂的例子： </p>
 <p>数组浅复制的例子</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var testArray = [0,1,2]</div><div class="line">var copyArray = testArray;</div><div class="line">copyArray[0] = <span class="string">"change"</span>;</div><div class="line">console.log(copyArray); //输出[<span class="string">"change"</span>, 1, 2]</div><div class="line">console.log(testArray);	//输出[<span class="string">"change"</span>, 1, 2]</div></pre></td></tr></table></figure>
 <p>当我们将testArray赋值给copyArray后，修改copyArray的第0个值，testArray的第0个值也跟着被修改了，这就是所谓的浅复制；<br>对象的浅复制也是同样的道理：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var testObject = &#123;name: <span class="string">"liming"</span>, sex: <span class="string">"man"</span>&#125;</div><div class="line">var copyObject = testObject;</div><div class="line">copyObject.sex = <span class="string">"woman"</span>;</div><div class="line">console.log(copyObject); //输出&#123;name: <span class="string">"liming"</span>, sex: <span class="string">"woman"</span>&#125;</div><div class="line">console.log(testObject); //输出&#123;name: <span class="string">"liming"</span>, sex: <span class="string">"woman"</span>&#125;</div></pre></td></tr></table></figure>
 <p>这里的sex修改后也一样影响到了原对象；<strong>so, questions here</strong></p>
-<h5 id="为什么会产生浅复制这种现象？"><a href="#为什么会产生浅复制这种现象？" class="headerlink" title="为什么会产生浅复制这种现象？"></a>为什么会产生浅复制这种现象？</h5><p>对于对象来说，浅复制是对对象地址的复制，没有开辟新的栈，<br>也就是复制的结果是两个对象指向同一个地址，修改其中一个对象的属性，则另一个对象的属性也会改变；</p>
-<h5 id="那么怎么解决呢？"><a href="#那么怎么解决呢？" class="headerlink" title="那么怎么解决呢？"></a>那么怎么解决呢？</h5><p>1.采用递归解决</p>
+<h5 id="为什么会产生浅复制这种现象？"><a href="#为什么会产生浅复制这种现象？" class="headerlink" title="为什么会产生浅复制这种现象？"></a>为什么会产生浅复制这种现象？</h5><p>对于对象来说，浅复制是对对象地址的复制，没有开辟新的栈，<br>也就是复制的结果是两个对象<strong>指向同一个地址</strong>，修改其中一个对象的属性，则另一个对象的属性也会改变；</p>
+<h5 id="那么怎么解决呢？"><a href="#那么怎么解决呢？" class="headerlink" title="那么怎么解决呢？"></a>那么怎么解决呢？</h5><p>解决的方法有很多种，在这里就不一一列举了，列举常见的两种<br>1.采用递归解决</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">var testObject = &#123;name: <span class="string">"liming"</span>, sex: <span class="string">"man"</span>&#125;</div><div class="line"><span class="keyword">function</span> deepCopy(obj,copy)&#123;</div><div class="line">    var copy = copy || &#123;&#125;;</div><div class="line">    <span class="keyword">for</span>(var i <span class="keyword">in</span> obj)&#123;</div><div class="line">	    <span class="keyword">if</span>(typeof obj[i] === <span class="string">'object'</span>)&#123;</div><div class="line">   	   	    //要考虑深复制问题了</div><div class="line">            <span class="keyword">if</span>(obj[i].constructor === Array)&#123;</div><div class="line">            	copy[i] =[];</div><div class="line">            &#125;<span class="keyword">else</span>&#123;</div><div class="line">            	copy[i] = &#123;&#125;;</div><div class="line">            &#125;</div><div class="line">            deepCopy(obj[i],copy[i]);</div><div class="line">	  	&#125;<span class="keyword">else</span>&#123;</div><div class="line">  	   	   	copy[i] = obj[i];</div><div class="line">	  	&#125;</div><div class="line">  	&#125;</div><div class="line">  	<span class="built_in">return</span> copy;</div><div class="line">&#125;</div><div class="line">var copyObject = deepCopy(testObject);</div><div class="line">copyObject.sex = <span class="string">"woman"</span>;</div><div class="line">console.log(testObject) //&#123;name: <span class="string">"liming"</span>, sex: <span class="string">"man"</span>&#125;</div></pre></td></tr></table></figure>
-<p>此方法的缺点是：<br>运行效率较低（递归函数的通性）；</p>
+<p>此方法的缺点是：</p>
+<ul>
+<li>运行效率较低（递归函数的通性）；</li>
+</ul>
 <p>2.采用JSON解析</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var testObject = &#123;name: <span class="string">"liming"</span>, sex: <span class="string">"man"</span>&#125;</div><div class="line">var copyObject = JSON.parse(JSON.stringify(testObject));</div><div class="line">copyObject.sex = <span class="string">"woman"</span>;</div><div class="line">console.log(testObject) //&#123;name: <span class="string">"liming"</span>, sex: <span class="string">"man"</span>&#125;</div></pre></td></tr></table></figure>
-<p>此方法的缺点是：<br>只能处理Number, String, Boolean, Array等对象</p>
+<p>此方法的缺点是：</p>
+<ul>
+<li>只能处理Number, String, Boolean, Array等对象</li>
+</ul>
 <p><img src="/css/images/heidi.jpg" alt=""></p>
 
         </div>
@@ -186,7 +192,7 @@
 
 
 
-    <a data-url="https://linpupil.github.io/2017/09/21/深度复制与浅度复制（javascript）/" data-id="cj7u7hn7h0001uww7dvvpr7vj" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://linpupil.github.io/2017/09/21/深度复制与浅度复制（javascript）/" data-id="cj7zjy7ej0002x0w73enyg5s3" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -323,6 +329,16 @@
         
 <nav id="article-nav">
     
+        <a href="/2017/09/22/js的replace-函数/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            js的replace()函数
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
     
         <a href="/2017/09/14/first-test-article/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">older</strong>
@@ -341,6 +357,26 @@
         <h3 class="widget-title">recents</h3>
         <div class="widget">
             <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/09/22/js的replace-函数/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/css/images/city_in_the_sky.jpg)" alt="js的replace()函数" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2017/09/22/js的replace-函数/" class="title">js的replace()函数</a></p>
+                            <p class="item-date"><time datetime="2017-09-22T07:54:12.000Z" itemprop="datePublished">2017-09-22</time></p>
+                        </div>
+                    </li>
                 
                     <li>
                         
@@ -394,7 +430,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a><span class="archive-list-count">2</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a><span class="archive-list-count">3</span></li></ul>
         </div>
     </div>
 
@@ -476,11 +512,6 @@
     
         <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
     
-    
-        <script type="text/x-mathjax-config">
-            MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
-        </script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
     
 
 
